@@ -1,6 +1,5 @@
-#import roby
 import speech_recognition as sr
-#from students import students
+import students as st
 r = sr.Recognizer()
 
 
@@ -25,14 +24,24 @@ class Registers():
                             print("Grupo del alumno:")
                             audiogrup = r.listen(source)
                             if (audiogrup != ""):
-                                print("Edad del alumno")
-                                audioage = r.listen(source)
-                                if (audioage != ""):
-                                    print("Id de la materia")
-                                    audiosubject = r.listen(source)
-                                    print("Hola: ",audioName)
+                                print("Carrera del alumno")
+                                audiocarrer = r.listen(source)
+                                if (audiocarrer != ""):
+                                    print("Edad del alumno")
+                                    audioage = r.listen(source)
+                                    if (audioage != ""):
+                                        print("Id de la materia")
+                                        audiosubject = r.listen(source)
+                                        if(audiosubject != ""):
+                                            print("Nombre de la matera")
+                                            audionamesubject=r.listen(source)
+                                            if(audionamesubject != ""):
+                                                print("Horario de la matera")
+                                                audioschedule=r.listen(source)
+                                                st(audioName, audioLastname, audiogrup, audiocarrer,audioage, audiosubject,audionamesubject,audioschedule)
+                                        print("Hola: ",audioName)
             else:
-                print("Hola")
+                print("No hay opciòn disponible")
 
 
         except sr.UnknownValueError:

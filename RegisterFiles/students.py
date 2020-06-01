@@ -19,4 +19,3 @@ class students():
         insert = studentColection.insert_one(studentDocument)
         print("Se inserto con exito con el id: ", insert.inserted_id)
 
-students('Cristian', 'Ortiz')

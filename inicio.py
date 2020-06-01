@@ -1,6 +1,6 @@
 import speech_recognition as sr
-#import robby
-import Movement.inicioMovement
+import Movement.inicioMovement as mv
+import RegisterFiles.registers as re
 r = sr.Recognizer()
 def inicio():
     with sr.Microphone() as source:
@@ -13,10 +13,10 @@ def funciones(audio):
         print("Tu opción fue: " + r.recognize_google(audio))
         if r.recognize_google(audio) == 'Movimiento':
             print('hello ')
-            #robby.arranca()
-            #inicio()
+            mv
         elif r.recognize_google(audio) == 'registro':
             print('Registro')
+            re
     except sr.UnknownValueError:
         print("Could not understand audio")
     except sr.RequestError as e:
