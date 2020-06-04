@@ -1,4 +1,4 @@
-from MongoConnection.mongoConnection import connection
+from RegisterFiles.MongoConnection.mongoConnection import connection
 
 class students():
     def __init__(self, name, lastname, group, carrer, age, idSubject, subjectName, schedule):

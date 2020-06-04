@@ -1,5 +1,5 @@
 import speech_recognition as sr
-import students as st
+import RegisterFiles.students as st
 r = sr.Recognizer()
 
 
