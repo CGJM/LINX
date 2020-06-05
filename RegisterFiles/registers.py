@@ -1,5 +1,5 @@
 import speech_recognition as sr
-#import RegisterFiles.students as st
+import RegisterFiles.students as st
 r = sr.Recognizer()
 
 
@@ -49,7 +49,7 @@ class Registers():
                     audio=r.listen(source)
                     audioschedule = r.recognize_google(audio)
                     audioschedule = format(audioschedule)
-                                        #        st(audioName, audioLastname, audiogrup, audiocarrer,audioage, audiosubject,audionamesubject,audioschedule)
+                    st(audioName, audioLastname, audiogrup, audiocarrer,audioage, audiosubject,audionamesubject,audioschedule)
                                         #print("Hola: ",audioName)
             else:
                 print("No hay opciòn disponible")
@@ -61,4 +61,4 @@ class Registers():
         except sr.RequestError as e:
             print("Could not request results; {0}".format(e))
 
-Registers()
+#Registers()
