@@ -60,5 +60,3 @@ class Registers():
             print("Could not understand audio")
         except sr.RequestError as e:
             print("Could not request results; {0}".format(e))
-
-#Registers()

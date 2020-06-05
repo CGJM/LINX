@@ -14,10 +14,10 @@ def funciones(audio):
         print("Tu opción fue: " + r.recognize_google(audio))
         if r.recognize_google(audio) == 'move':
             print('hello ')
-            mv()
+            mv.Movements
         elif r.recognize_google(audio) == 'register':
             print('Registro')
-            aud
+            re.Registers
     except sr.UnknownValueError:
         print("Could not understand audio")
     except sr.RequestError as e:
