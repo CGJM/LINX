@@ -1,5 +1,5 @@
 import speech_recognition as sr
-import RegisterFiles.students as st
+#import RegisterFiles.students as st
 r = sr.Recognizer()
 
 
@@ -12,36 +12,48 @@ class Registers():
     def funcionsRegisters(self, audio):
         text = r.recognize_google(audio)
         audio = format(text)
+        print(audio)
         try:
             if(audio == "estudiante"):
                 with sr.Microphone() as source:
                     print("Nombre del alumno:")
-                    audioName = r.listen(source)
-                    if(audioName != ""):
-                        print("Apellido del alumno:")
-                        audioLastname= r.listen(source)
-                        if (audioLastname != ""):
-                            print("Grupo del alumno:")
-                            audiogrup = r.listen(source)
-                            if (audiogrup != ""):
-                                print("Carrera del alumno")
-                                audiocarrer = r.listen(source)
-                                if (audiocarrer != ""):
-                                    print("Edad del alumno")
-                                    audioage = r.listen(source)
-                                    if (audioage != ""):
-                                        print("Id de la materia")
-                                        audiosubject = r.listen(source)
-                                        if(audiosubject != ""):
-                                            print("Nombre de la matera")
-                                            audionamesubject=r.listen(source)
-                                            if(audionamesubject != ""):
-                                                print("Horario de la matera")
-                                                audioschedule=r.listen(source)
-                                                st(audioName, audioLastname, audiogrup, audiocarrer,audioage, audiosubject,audionamesubject,audioschedule)
-                                        print("Hola: ",audioName)
+                    audio = r.listen(source)
+                    audioName = r.recognize_google(audio)
+                    audioName = format(audioName)
+                    print("Apellido del alumno:")
+                    audio= r.listen(source)
+                    audioLastname = r.recognize_google(audio)
+                    audioLastname = format(audioLastname)
+                    print(audioLastname+ "" + audioName)
+                    print("Grupo del alumno:")
+                    audio = r.listen(source)
+                    audiogrup = r.recognize_google(audio)
+                    audiogrup = format(audiogrup)
+                    print("Carrera del alumno: ")
+                    audio = r.listen(source)
+                    audiocarrer = r.recognize_google(audio)
+                    audiocarrer = format(audiocarrer)
+                    print("Edad del alumno: ")
+                    audio = r.listen(source)
+                    audioage = r.recognize_google(audio)
+                    audioage = format(audioage)
+                    print("Id de la materia: ")
+                    audio = r.listen(source)
+                    audiosubject = r.recognize_google(audio)
+                    audiosubject = format(audiosubject)
+                    print("Nombre de la materia: ")
+                    audio=r.listen(source)
+                    audionamesubject = r.recognize_google(audio)
+                    audionamesubject = format(audionamesubject)
+                    print("Horario de la matera")
+                    audio=r.listen(source)
+                    audioschedule = r.recognize_google(audio)
+                    audioschedule = format(audioschedule)
+                                        #        st(audioName, audioLastname, audiogrup, audiocarrer,audioage, audiosubject,audionamesubject,audioschedule)
+                                        #print("Hola: ",audioName)
             else:
                 print("No hay opciòn disponible")
+                Registers()
 
 
         except sr.UnknownValueError:
