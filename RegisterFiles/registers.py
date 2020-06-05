@@ -1,13 +1,13 @@
-import speech_recognition as sr
+import speech_recognition as srtwo
 import RegisterFiles.students as st
-r = sr.Recognizer()
+a = srtwo.Recognizer()
 
 
 class Registers():
     def __init__(self):
-        with sr.Microphone() as source:
+        with srtwo.Microphone() as source:
             print("Que registro desea realizar:")
-            audio = r.listen(source)
+            audio = a.listen(source)
             self.funcionsRegisters(audio)
     def funcionsRegisters(self, audio):
         text = r.recognize_google(audio)
