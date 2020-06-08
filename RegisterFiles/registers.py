@@ -10,53 +10,67 @@ class Registers():
             audio = a.listen(source)
             self.funcionsRegisters(audio)
     def funcionsRegisters(self, audio):
-        text = r.recognize_google(audio)
+        text = a.recognize_google(audio)
         audio = format(text)
         print(audio)
         try:
             if(audio == "estudiante"):
-                with sr.Microphone() as source:
+                with srtwo.Microphone() as source:
                     print("Nombre del alumno:")
-                    audio = r.listen(source)
-                    audioName = r.recognize_google(audio)
+                    audio = a.listen(source)
+                    audioName = a.recognize_google(audio)
                     audioName = format(audioName)
-                    print("Apellido del alumno:")
-                    audio= r.listen(source)
-                    audioLastname = r.recognize_google(audio)
-                    audioLastname = format(audioLastname)
-                    print(audioLastname+ "" + audioName)
-                    print("Grupo del alumno:")
-                    audio = r.listen(source)
-                    audiogrup = r.recognize_google(audio)
-                    audiogrup = format(audiogrup)
-                    print("Carrera del alumno: ")
-                    audio = r.listen(source)
-                    audiocarrer = r.recognize_google(audio)
-                    audiocarrer = format(audiocarrer)
-                    print("Edad del alumno: ")
-                    audio = r.listen(source)
-                    audioage = r.recognize_google(audio)
-                    audioage = format(audioage)
-                    print("Id de la materia: ")
-                    audio = r.listen(source)
-                    audiosubject = r.recognize_google(audio)
-                    audiosubject = format(audiosubject)
-                    print("Nombre de la materia: ")
-                    audio=r.listen(source)
-                    audionamesubject = r.recognize_google(audio)
-                    audionamesubject = format(audionamesubject)
-                    print("Horario de la matera")
-                    audio=r.listen(source)
-                    audioschedule = r.recognize_google(audio)
-                    audioschedule = format(audioschedule)
-                    st(audioName, audioLastname, audiogrup, audiocarrer,audioage, audiosubject,audionamesubject,audioschedule)
-                                        #print("Hola: ",audioName)
+                    print(audioName)
+                    with srtwo.Microphone() as source:
+                        print("Apellido del alumno:")
+                        audio= a.listen(source)
+                        audioLastname = a.recognize_google(audio)
+                        audioLastname = format(audioLastname)
+                        print(audioLastname)
+                        with srtwo.Microphone() as source:
+                            print("Grupo del alumno:")
+                            audio = a.listen(source)
+                            audiogrup = a.recognize_google(audio)
+                            audiogrup = format(audiogrup)
+                            print(audiogrup)
+                            with srtwo.Microphone() as source:
+                                print("Carrera del alumno: ")
+                                audio = a.listen(source)
+                                audiocarrer = a.recognize_google(audio)
+                                audiocarrer = format(audiocarrer)
+                                print(audiocarrer)
+                                with srtwo.Microphone() as source:
+                                    print("Edad del alumno: ")
+                                    audio = a.listen(source)
+                                    audioage = a.recognize_google(audio)
+                                    audioage = format(audioage)
+                                    print(audioage)
+                                    with srtwo.Microphone() as source:
+                                        print("Id de la materia: ")
+                                        audio = a.listen(source)
+                                        audiosubject = a.recognize_google(audio)
+                                        audiosubject = format(audiosubject)
+                                        print(audiosubject)
+                                        with srtwo.Microphone() as source:
+                                            print("Nombre de la materia: ")
+                                            audio=a.listen(source)
+                                            audionamesubject = a.recognize_google(audio)
+                                            audionamesubject = format(audionamesubject)
+                                            print(audionamesubject)
+                                            with srtwo.Microphone() as source:
+                                                print("Horario de la matera")
+                                                audio=a.listen(source)
+                                                audioschedule = a.recognize_google(audio)
+                                                audioschedule = format(audioschedule)
+                                                print(audioschedule)
+                                                if (audioschedule != ""):
+                                                    st.students(audioName, audioLastname, audiogrup, audiocarrer,audioage, audiosubject,audionamesubject,audioschedule)
             else:
                 print("No hay opciòn disponible")
                 Registers()
 
 
-        except sr.UnknownValueError:
+        except srtwo.UnknownValueError:
             print("Could not understand audio")
-        except sr.RequestError as e:
+        except srtwo.RequestError as e:
             print("Could not request results; {0}".format(e))

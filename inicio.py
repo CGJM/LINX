@@ -11,11 +11,13 @@ def inicio():
 def funciones(audio):
 #    aud=re()
     try:
-        print("Tu opción fue: " + r.recognize_google(audio))
-        if r.recognize_google(audio) == 'move':
+        aud= r.recognize_google(audio)
+        audio= format(aud)
+        print("Tu opción fue: " + audio)
+        if audio == 'move':
             print('hello ')
             mv.Movements()
-        elif r.recognize_google(audio) == 'register':
+        elif audio == 'registro':
             print('Registro')
             re.Registers()
     except sr.UnknownValueError:
